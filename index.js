@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express();
 const bodyParser = require('body-parser')
-const perguntaModel = require("./database/Pergunta")
+const Pergunta = require("./database/Pergunta")
 const conn = require("./database/database")
     //database
 conn.authenticate().then(() => {
@@ -17,7 +17,18 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 //rotas
 app.get("/", (req, res) => {
-    res.render("index")
+    Pergunta.findAll({
+        raw: true,
+        order: [
+            ['createdAt', 'desc']
+        ]
+    }).then(perguntas => {
+        console.log(perguntas)
+        res.render("index", {
+            perguntas: perguntas
+        })
+    })
+
 })
 
 app.get("/perguntar", (req, res) => {
@@ -27,7 +38,12 @@ app.get("/perguntar", (req, res) => {
 app.post("/perguntas-salvas", (req, res) => {
     var titulo = req.body.titulo
     var descricao = req.body.descricao
-    res.send(titulo + " " + descricao)
+    Pergunta.create({
+        titulo: titulo,
+        descricao: descricao
+    }).then(() => {
+        res.redirect("/")
+    })
 })
 
 app.listen(8080, () => {
