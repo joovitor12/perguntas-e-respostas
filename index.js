@@ -1,15 +1,33 @@
 const express = require("express")
 const app = express();
-
+const bodyParser = require('body-parser')
+const perguntaModel = require("./database/Pergunta")
+const conn = require("./database/database")
+    //database
+conn.authenticate().then(() => {
+        console.log("conexao feita")
+    }).catch((msgErro) => {
+        console.log(msgErro)
+    })
+    //express utilizando o ejs como view engine
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
-
+    //configurando o body parser
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
+//rotas
 app.get("/", (req, res) => {
     res.render("index")
 })
 
 app.get("/perguntar", (req, res) => {
     res.render("perguntar");
+})
+
+app.post("/perguntas-salvas", (req, res) => {
+    var titulo = req.body.titulo
+    var descricao = req.body.descricao
+    res.send(titulo + " " + descricao)
 })
 
 app.listen(8080, () => {
