@@ -12,6 +12,10 @@ app.get("/perguntar", (req, res) => {
     res.render("perguntar");
 })
 
+app.post("/perguntas-salvas", (req, res) => {
+    res.send("perguntas")
+})
+
 app.listen(8080, () => {
     console.log("App rodando no localhost:8080")
 })
