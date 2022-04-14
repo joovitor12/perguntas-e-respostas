@@ -17,7 +17,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 //rotas
 app.get("/", (req, res) => {
-    Pergunta.findAll({ raw: true }).then(perguntas => {
+    Pergunta.findAll({
+        raw: true,
+        order: [
+            ['createdAt', 'desc']
+        ]
+    }).then(perguntas => {
         console.log(perguntas)
         res.render("index", {
             perguntas: perguntas
