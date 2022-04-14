@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express();
 const bodyParser = require('body-parser')
-
+const perguntaModel = require("./database/Pergunta")
 const conn = require("./database/database")
     //database
 conn.authenticate().then(() => {
