@@ -5,7 +5,28 @@
 
     <body>
         <%- include ('partials/navbar.ejs') %>
-            <h1>Home Page</h1>
+            <div class="container">
+                <hr>
+                <h1>Página de Perguntas</h1>
+                <hr>
+                <a href="/perguntar" class="btn btn-success"> Faça uma pergunta! :)</a>
+                <br>
+                <% perguntas.forEach(pergunta => { %>
+                    <br>
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>
+                                <%= pergunta.titulo %>
+                            </h3>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary">Responder!</button>
+                        </div>
+                    </div>
+
+
+                    <% })%>
+            </div>
 
     </body>
     <%- include ('partials/footer.ejs') %>
