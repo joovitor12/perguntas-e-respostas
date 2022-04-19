@@ -16,6 +16,7 @@
             <h3>Agora, responda a pergunta!</h3>
             <textarea placeholder="Digite sua resposta" class="form-control" name="corpo"></textarea>
             <br>
+            <input type="hidden" name="pergunta" value="<%= pergunta.id %>">
             <button type="submit" class="btn btn-primary">Responder</button>
         </form>
     </div>
