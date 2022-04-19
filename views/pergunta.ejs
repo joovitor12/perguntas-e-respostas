@@ -1,6 +1,6 @@
 <%- include ('partials/header.ejs') %>
 
-<body>
+<body class="pergunta">
     <%- include ('partials/navbar.ejs') %>
     <div class="container">
         <hr>
@@ -14,11 +14,26 @@
         <form method="post" action="/responder">
             
             <h3>Agora, responda a pergunta!</h3>
+            <br>
             <textarea placeholder="Digite sua resposta" class="form-control" name="corpo"></textarea>
             <br>
             <input type="hidden" name="pergunta" value="<%= pergunta.id %>">
             <button type="submit" class="btn btn-primary">Responder</button>
         </form>
+        <hr>
+        <h3>Respostas feitas a essa pergunta: </h3>
+        <br>
+        <%respostas.forEach(resposta => {%>
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <p>
+                        <%= resposta.corpo %>
+                        
+                    </p>
+                </div>
+            </div>
+        <%})%>
     </div>
 </body>
 
