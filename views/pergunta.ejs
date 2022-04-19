@@ -11,7 +11,7 @@
         <div class="descricao">
             <p><%= pergunta.descricao %></p>
         </div>
-        <form>
+        <form method="post" action="/responder">
             
             <h3>Agora, responda a pergunta!</h3>
             <textarea placeholder="Digite sua resposta" class="form-control" name="corpo"></textarea>
