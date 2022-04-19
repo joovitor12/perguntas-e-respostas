@@ -2,6 +2,7 @@ const express = require("express")
 const app = express();
 const bodyParser = require('body-parser')
 const Pergunta = require("./database/Pergunta")
+const Resposta = require("./database/Resposta")
 const conn = require("./database/database")
     //database
 conn.authenticate().then(() => {
