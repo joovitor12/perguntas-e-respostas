@@ -18,6 +18,14 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 //rotas
+
+app.get("/home", (req,res) => {
+    res.render("home");    
+})
+
+
+
+
 app.get("/", (req, res) => {
     Pergunta.findAll({
         raw: true,
