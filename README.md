@@ -2,7 +2,7 @@
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-como-executar">Como executar</a>
+  <a href="#-como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-deploy">Deploy</a>
 </p>
 
@@ -39,4 +39,4 @@ Com o comando executado, agora você pode criar e responder perguntas!
 
 ## Deploy
 
-  - Acesse o deploy da aplicação [aqui.]("http://67.205.167.145/home")
+  - Acesse o deploy da aplicação [aqui.](http://67.205.167.145/home)
