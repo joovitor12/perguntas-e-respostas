@@ -5,7 +5,7 @@ const Pergunta = require("./database/Pergunta")
 const Resposta = require("./database/Resposta")
 const conn = require("./database/database");
 const res = require("express/lib/response");
-    //database
+//database
 conn.authenticate().then(() => {
         console.log("conexao feita")
     }).catch((msgErro) => {
@@ -19,8 +19,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 //rotas
 
-app.get("/home", (req,res) => {
-    res.render("home");    
+app.get("/home", (req, res) => {
+    res.render("home");
 })
 
 
@@ -60,18 +60,18 @@ app.get("/pergunta/:id", (req, res) => {
     var id = req.params.id
     Pergunta.findOne({
         where: { id: id }
-        
+
     }).then(pergunta => {
         if (pergunta != undefined) {
 
             Resposta.findAll({
-                where: {perguntaId: pergunta.id},
+                where: { perguntaId: pergunta.id },
                 order: [
-                    ['createdAt' , 'desc']
-                ] 
+                    ['createdAt', 'desc']
+                ]
             }).then(respostas => {
                 res.render("pergunta", {
-                    pergunta: pergunta, 
+                    pergunta: pergunta,
                     respostas: respostas
                 });
             })
@@ -81,20 +81,20 @@ app.get("/pergunta/:id", (req, res) => {
     })
 })
 
-app.post("/responder", (req,res) => {
+app.post("/responder", (req, res) => {
     var corpo = req.body.corpo
     var perguntaId = req.body.pergunta
     Resposta.create({
         corpo: corpo,
         perguntaId: perguntaId
     }).then(() => {
-        res.redirect("/pergunta/"+perguntaId)
+        res.redirect("/pergunta/" + perguntaId)
     });
 
 });
 
+const port = process.env.PORT || 8080;
 
-
-app.listen(8080, () => {
+app.listen(port, () => {
     console.log("App rodando no localhost:8080")
 })
