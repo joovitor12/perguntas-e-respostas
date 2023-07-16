@@ -5,3 +5,47 @@ body {
 #formulario-pergunta {
     margin-top: 3vh;
 }
+
+.titulo {
+    text-align: center;
+}
+
+.descricao {
+    text-align: center;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    flex-direction: column;
+    text-align: center;
+}
+
+#autor {
+    background-color: rgba(1, 1, 1, 0.2);
+    padding: 1rem;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+}
+
+#container h1 {
+    background-color: rgba(1, 1, 1, 0.2);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+
+#desc {
+    width: 200px;
+}
+
+.githubLink{
+    color: darkslategray;
+}
+
+#botao {
+    margin: 20px;
+}

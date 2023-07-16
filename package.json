@@ -1,18 +1,19 @@
 {
-  "name": "perguntas-e-respostas",
-  "version": "1.0.0",
-  "description": "Plataforma de perguntas e respostas semelhante ao Yahoo respostas",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "João Vitor Machado",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.20.0",
-    "ejs": "^3.1.6",
-    "express": "^4.17.3",
-    "mysql2": "^2.3.3",
-    "sequelize": "^6.19.0"
-  }
+    "name": "perguntas-e-respostas",
+    "version": "1.0.0",
+    "description": "Plataforma de perguntas e respostas semelhante ao Yahoo respostas",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index"
+    },
+    "author": "João Vitor Machado",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.20.0",
+        "ejs": "^3.1.6",
+        "express": "^4.17.3",
+        "mysql2": "^2.3.3",
+        "nodemon": "^2.0.16",
+        "sequelize": "^6.19.0"
+    }
 }
